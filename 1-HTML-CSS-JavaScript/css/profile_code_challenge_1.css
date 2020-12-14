@@ -1,0 +1,76 @@
+body {
+    background: #4cd8dd;
+    font-family: Genoeva, Arial, sans-serif;
+}
+
+h1 {
+    color: rgba(0, 0, 0, 1);
+    font: 80px Brush Script MT, Helvetica, serif;
+    font-weight: 1000;
+    margin: 20px;
+    padding: 10px 20px;
+    border: 10px solid blue;
+    text-align: center;
+}
+h2 {
+    color: rgba(0, 0, 0, 1);
+    font: 40px Genoeva, Helvetica, serif;
+    font-weight: 200;
+    margin: 40px;
+    padding: 10px 20px;
+    border: 5px solid blue;
+    text-align: center;
+}
+h3 {
+    color: rgba(0, 0, 0, 1);
+    font: 40px Genoeva, Helvetica, serif;
+    font-weight: 200;
+    margin: 20px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+h4 {
+    color: rgba(0, 0, 0, 1);
+    font: 20px Genoeva, Helvetica, serif;
+    font-weight: 100;
+    margin: 20px;
+    padding: 10px 20px;
+    text-align: center;
+}
+.navlink {
+    text-align: center;
+    margin: 20px;
+   
+}
+ul {
+
+    font: 20px Genoeva, Helvetica, serif;
+    font-weight: 100;
+    margin: 40px;
+    padding: 10px 20px;
+    text-align: center;
+}
+li {
+    display: block;
+}
+
+.sally_pic {
+    display: block;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+.rog_pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+.rog_song {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

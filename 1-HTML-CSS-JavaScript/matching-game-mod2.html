@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Matching Game</title>
+
+    <style>
+        img {
+            position: absolute;
+        }
+
+        div {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+
+        #rightSide {
+            left: 500px;
+            border-left: 1px solid;
+        }
+    </style>
+</head>
+
+<body onload="generateFaces()">
+
+    <h1>Matching Game</h1>
+
+    <p>Click on the extra smiling face on the left.</p>
+    <div id="leftSide"></div>
+    <div id="rightSide"></div>
+
+    <script>
+        let numberOfFaces = 5;
+        let level = 1;
+
+        // i changed these from const to let just to keep it consistant with the theRightSide
+        let theLeftSide = document.getElementById('leftSide');
+
+        // i changed these from const to let -  i needed to use this in an assignment below
+        //let theRightSide = document.getElementById('rightSide');
+
+
+        function generateFaces() {
+            for (let i = 0; i < numberOfFaces; i++) {
+                const face = document.createElement('img');
+                face.src = 'images/smile.png';
+                const randomTop = Math.floor(Math.random() * 400) + 1;
+                const randomLeft = Math.floor(Math.random() * 400) + 1;
+                face.style.top = randomTop + 'px';
+                face.style.left = randomLeft + 'px';
+                theLeftSide.appendChild(face);
+            }
+            // this makes a copy of leftside including the div tags -->  assigned the theRightSide to the cloned copy
+            let theRightSide = theLeftSide.cloneNode(true);
+
+            // this removes the last child  (the last smiley image)
+            theRightSide.removeChild(theRightSide.lastChild);
+            //console.log(leftSideImages);
+
+            /////////////////////////////////////////////////////////////////////////////////////
+            // this is where the problem is. we append a copy of div1 into div 2
+            //theRightSide.appendChild(leftSideImages);  
+            /////////////////////////////////////////////////////////////////////////////////////            
+
+            // instead of the append lets modify the copy(clone) before we paste it in 
+            //theRightSide is our cloned version of the theLeftSide -- so change the name of the id
+            theRightSide.id = 'rightSide';
+            //console.log(theRightSide);
+
+            //paste our cloned version 'theRightSide' after theLeftSide
+            theLeftSide.after(theRightSide);
+
+            theLeftSide.lastChild.addEventListener("click", nextLevel);
+            document.body.addEventListener("click", gameOver);
+        }
+        
+        function nextLevel() {
+            event.stopPropagation();
+            numberOfFaces += 5;
+
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            //this should clear the old faces.
+            while (theRightSide.firstChild) {
+               theRightSide.removeChild(theRightSide.firstChild);
+            }
+            theRightSide = document.getElementById('rightSide');
+            theRightSide.remove();
+            
+
+            level++;
+            generateFaces();
+        }
+        function gameOver() {
+            alert('Game Over! You reached level ' + level + '!');
+            document.body.removeEventListener('click', gameOver);
+            theLeftSide.lastChild.removeEventListener('click', nextLevel);
+
+        }
+
+    </script>
+</body>
+
+</html>

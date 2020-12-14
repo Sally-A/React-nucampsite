@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Guessing Game</title>
+</head>
+
+<body>
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="runGame()">Start Game</button>
+    <script>
+        const COLORS_ARRAY = ["yellow", "orange", "gold", "white", "magenta", "gray", "green", "cyan", "blue", "red",];
+
+        function runGame() {
+            let guess = "";
+            let correct = false;
+            let numTries = 0;
+
+            // generate random number & store in a variable such as target index
+            const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+            const target = COLORS_ARRAY[targetIndex];
+
+            do {
+                COLORS_ARRAY.sort();
+                guess = prompt("I am thinking of one of these colors:\n\n" + COLORS_ARRAY.join(", ") + "\n\nWhat color am I thinking of?\n");
+
+                // added entering an empty string to abort also
+                if (guess === null || guess === "") {  
+                    alert("The game has been aborted. \n\n Would you like to try again?");
+                    return;
+                }
+                numTries += 1;
+                correct = checkGuess(guess.toLowerCase(), target);
+            } while (!correct);
+
+            document.body.style.background = guess;
+
+            // assignment called for the following, but because of race conditions setTimout method was used
+            //alert("Congratulations \n\n You have guessed the correct color. \n\nIt took you " + numTries + " tries to guess it right");
+
+            // wait until after the screen background updates, until executing the alert (~1sec delay)
+            setTimeout(function () { alert("Congratulations \n\n You have guessed the correct color. \n\nIt took you " + numTries + " tries to guess it right") }, 1000);
+        }
+
+        // Check guess
+        function checkGuess(guess, target) {
+            let correct = false;
+            //guess not in the colors array   -- tell player color not recognized
+            if (COLORS_ARRAY.indexOf(guess) < 0) {
+                alert("Sorry, I do not recognize your color. \n\n Please try again.");
+            // guess > target   -- tell player incorrect - higher than targer
+            } else if (guess > target) {
+                alert("Sorry your guess is incorrect. \n\n Hint your color is alphabetically lower than mine. Please try again. ");
+            // guess < target   -- tell player incorrect - lower than targer
+            } else if (guess < target) {
+                alert("Sorry your guess is incorrect. \n\n Hint your color is alphabetically higher than mine. Please try again.");
+            //guess is correct
+            } else {
+                correct = true;
+            }
+            return correct;
+        }
+    </script>
+</body>
+
+</html>
