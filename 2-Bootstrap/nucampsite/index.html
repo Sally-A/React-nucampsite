@@ -25,15 +25,17 @@
             <div class="row">
                 <div class="col-4 col-sm-3 col-md-2 align-self-center">
                     <img src="img/logo.png" class="img-fluid" />
-                 </div>
+                </div>
                 <div class="col">
                     <h1>NuCamp</h1>
                     <h2>a better way to camp</h2>
                 </div>
                 <div class="mt-4 col col-md-4 col-xl-2">
-                    <a role="button" class="btn btn-lg btn-info" href="#reserveForm" >Reserve Campsite</a>
+                    <a href="#reserveForm" role="button" class="btn btn-lg btn-info" data-toggle="tooltip"
+                        data-placement="bottom" data-html="true"
+                        title="Or call us at <br /><strong>1-206-555-1234</strong>">Reserve Campsite</a>
                 </div>
-          
+
             </div>
         </div>
     </header>
@@ -135,8 +137,9 @@
 
                             <div class="row form-group">
                                 <label for="date" class="col-sm-6 col-form-label">Date</label>
-                                <div class="col col-sm-6">     <!-- Why do I need col-sm-6 here when I didn't need it for the select drop down -->
-                                <input class="form-control" type="date" id="date" name="date" />
+                                <div class="col col-sm-6">
+                                    <!-- Why do I need col-sm-6 here when I didn't need it for the select drop down -->
+                                    <input class="form-control" type="date" id="date" name="date" />
                                 </div>
                             </div>
 
@@ -193,6 +196,13 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
 
     <!-- end optional CDN links -->
     <script>

@@ -34,6 +34,7 @@ header h2 {
 .navbar {
     background-color: #901CAD;
 }
+/* added to prevent the 2 thickness link undeline in the accordion */
 .card-header a:hover{
     text-decoration: none;
 }
