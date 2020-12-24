@@ -58,7 +58,7 @@
                 </ul>
                 <span class="navbar-text ml-auto">
                     <a role="button" data-toggle="modal" data-target="#loginModal">
-                        <i class="fa fa-sign-in"></i> Login
+                        <i class="fa fa-sign-in text-white" ></i> Login
                     </a>
                 </span>
             </div>
@@ -200,7 +200,7 @@
             </div>
         </div>
 
-        <div class="row row-content">
+        <div class="row">
             <div class="col-sm-4 order-sm-last col-md-3">
                 <h2 class="text-sm-right">Our Community Partners</h2>
             </div>
@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-content">
+        <div class="row">
             <div class="col col-sm-6 mx-auto">
                 <div class="card">
                     <h3 class="card-header bg-info text-white">Reserve a Campsite</h3>
@@ -227,7 +227,7 @@
                                 <label for="numCampers" class="col-sm-6 col-form-label">Number of Campers</label>
                                 <div class="col">
                                     <select class="form-control" name="numCampers" id="numCampers">
-                                        <option >Select...</option>
+                                        <option selected>Select</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -241,6 +241,7 @@
                             <div class="row form-group">
                                 <label for="date" class="col-sm-6 col-form-label">Date</label>
                                 <div class="col col-sm-6">
+                                    <!-- Why do I need col-sm-6 here when I didn't need it for the select drop down -->
                                     <input class="form-control" type="date" id="date" name="date" />
                                 </div>
                             </div>
@@ -260,7 +261,7 @@
 
     </div>
     <footer class="site-footer">
-        <div class="container">
+            <div class="container text-black">
             <div class="row">
                 <div class="col-4 col-sm-2 offset-1">
                     <h5>Links</h5>

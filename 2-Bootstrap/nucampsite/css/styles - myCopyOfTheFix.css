@@ -41,8 +41,31 @@ header h2 {
 .carousel {
     border: solid #5637DD;
 }
+
 /* added to prevent the 2 thickness link undeline in the accordion */
 .card-header a:hover{
     text-decoration: none;
+    color: blue; 
 }
 
+/*  not hovered  - this covers the initial condition for top card*/
+a:not([href]):not([class]) {
+    color: blue;
+    text-decoration: none;
+}
+/*  not hovered  - this covers the rest of the active */
+.card-header a, a:active{
+    text-decoration: none;
+    color: blue; 
+}
+
+/*  hovered  - this covers the initial condition for top card when hovered*/
+a:not([href]):not([class]):hover {
+    color: red;
+    text-decoration: none;
+}
+/*  hovered  - this covers the rest of the hovers */
+.card-header a:hover{
+    text-decoration: none;
+    color: red; 
+}
