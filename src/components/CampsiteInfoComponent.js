@@ -178,7 +178,7 @@ function CampsiteInfo(props) {
                         comments={props.comments}
                         postComment={props.postComment}
                         campsiteId={props.campsite.id}
-                    />     
+                    />
                 </div>
             </div>
         );

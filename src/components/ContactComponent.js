@@ -28,13 +28,12 @@ class Contact extends Component {
                 email: false
             }
         };
-      
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }
 
@@ -74,14 +73,10 @@ class Contact extends Component {
                         <hr />
                     </div>
                     <div className="col-md-10">
-
-
-                        <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}> 
+                        <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
-
-
                                 <Control.text model=".firstName" id="firstName" name="firstName"
                                         placeholder="First Name"
                                         className="form-control"
@@ -179,10 +174,6 @@ class Contact extends Component {
                                     />
                                 </Col>
                             </Row>
-
-
-
-
                             <Row className="form-group">
                                 <Col md={{size: 4, offset: 2}}>
                                     <div className="form-check">
